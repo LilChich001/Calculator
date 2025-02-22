@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+:root[data-theme="light"] {
+  --bg-color: #f5f7fa;
+  --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --calculator-bg: #f0f0f0;
+  --display-bg: #fff;
+  --button-bg: #fff;
+  --button-hover: #e0e0e0;
+  --text-color: #333;
+  --heading-color: #333;
+  --text-secondary: #666;
+  --operator-color: #ff9500;
+  --operator-bg: #f8f9fa;
+  --equal-bg: #2196f3;
+  --equal-color: #fff;
+  --clear-bg: #ff9500;
+  --clear-color: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --keyboard-info-bg: rgba(255, 255, 255, 0.9);
+  --theme-toggle-bg: #f8f9fa;
+  --theme-toggle-hover: #ffffff;
+}
+
+:root[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --bg-gradient: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
+  --calculator-bg: #2d2d2d;
+  --display-bg: #1a1a1a;
+  --button-bg: #3d3d3d;
+  --button-hover: #4d4d4d;
+  --text-color: #ffffff;
+  --heading-color: #2196f3;
+  --text-secondary: #aaaaaa;
+  --operator-color: #ffa726;
+  --operator-bg: #333333;
+  --equal-bg: #1976d2;
+  --equal-color: #ffffff;
+  --clear-bg: #e65100;
+  --clear-color: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --keyboard-info-bg: rgba(45, 45, 45, 0.9);
+  --theme-toggle-bg: #3d3d3d;
+  --theme-toggle-hover: #4d4d4d;
+}
+
+html {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: var(--bg-gradient);
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-gradient);
+}
+
+h1 {
+  color: var(--heading-color);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  letter-spacing: 1px;
+}

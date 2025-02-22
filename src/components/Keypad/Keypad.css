@@ -1,0 +1,92 @@
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(5px, 2vw, 10px);
+  margin-top: clamp(10px, 3vw, 20px);
+}
+
+button {
+  padding: clamp(10px, 4vw, 20px);
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  border: none;
+  border-radius: clamp(3px, 1vw, 5px);
+  background-color: var(--button-bg);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  min-height: clamp(40px, 12vw, 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+@media (hover: none) {
+  button:hover {
+    background-color: var(--button-bg);
+  }
+}
+
+.operator {
+  background-color: var(--operator-bg);
+  color: var(--operator-color);
+  font-weight: bold;
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.operator:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.clear {
+  background-color: var(--clear-bg);
+  color: var(--clear-color);
+  font-weight: bold;
+}
+
+.equal {
+  background-color: var(--equal-bg);
+  color: var(--equal-color);
+  grid-row: span 2;
+  font-weight: bold;
+}
+
+.zero {
+  grid-column: span 3;
+}
+
+button:active {
+  transform: scale(0.95);
+  background-color: var(--button-hover);
+}
+
+@media (max-width: 280px) {
+  .buttons {
+    gap: 4px;
+  }
+  
+  button {
+    padding: 8px;
+    font-size: 0.9rem;
+    min-height: 35px;
+  }
+}
+
+@media (min-width: 768px) {
+  button {
+    transition: all 0.3s;
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px var(--shadow-color);
+  }
+} 
