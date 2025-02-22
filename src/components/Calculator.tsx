@@ -29,7 +29,6 @@ const Calculator: React.FC = () => {
   const {
     display,
     equation,
-    hasResult,
     lastWasOperator,
     showModal
   } = useAppSelector(state => state.calculator);

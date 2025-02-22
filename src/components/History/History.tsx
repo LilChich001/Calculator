@@ -36,7 +36,7 @@ export const History: React.FC = () => {
         </button>
       </div>
       <div className="history-list">
-        {history.map((item, index) => (
+        {history.map((item) => (
           <div 
             key={item.timestamp} 
             className="history-item"
