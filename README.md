@@ -159,3 +159,7 @@ Your Name
 - [ ] Export history to file
 - [ ] Import history from file
 - [ ] Multiple history lists
+
+
+![Preview1](./.preview/preview1.jpg)
+![Preview1](./.preview/preview1.jpg)
