@@ -2,8 +2,6 @@
 
 A modern, responsive calculator with keyboard support, built using React and TypeScript.
 
-![Calculator](preview.png)
-
 ## 🚀 Features
 
 - ✨ Modern design
