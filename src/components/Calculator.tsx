@@ -20,7 +20,7 @@ import {
 import { History } from './History/History';
 import './Calculator.css';
 
-const SPECIAL_KEYS = ['+', '-', '*', '/', '=', 'Enter', 'Escape'] as const;
+const SPECIAL_KEYS = ['+', '-', '*', '/', '=', 'Enter', 'Escape', 'Delete', 'Backspace'] as const;
 const OPERATORS = ['+', '-', '*', '/'] as const;
 
 const Calculator: React.FC = () => {
@@ -32,35 +32,6 @@ const Calculator: React.FC = () => {
     lastWasOperator,
     showModal
   } = useAppSelector(state => state.calculator);
-
-  useEffect(() => {
-    const handleKeyPress = (event: KeyboardEvent) => {
-      const key = event.key;
-
-      if (SPECIAL_KEYS.includes(key as any)) {
-        event.preventDefault();
-      }
-
-      if (/^[0-9.]$/.test(key)) {
-        dispatch(handleNumber(key as any));
-      }
-      else if (OPERATORS.includes(key as any)) {
-        dispatch(handleOperator(key as any));
-      }
-      else if (key === '=' || key === 'Enter') {
-        handleEqual();
-      }
-      else if (key === 'Escape' || key === 'Delete') {
-        dispatch(resetCalculator());
-      }
-      else if (key === 'Backspace') {
-        dispatch(handleBackspace());
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [dispatch]);
 
   const calculate = (expression: string): string => {
     try {
@@ -132,6 +103,36 @@ const Calculator: React.FC = () => {
       }));
     }
   };
+
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      const key = event.key;
+
+      if (SPECIAL_KEYS.includes(key as any)) {
+        event.preventDefault();
+      }
+
+      if (/^[0-9.]$/.test(key)) {
+        dispatch(handleNumber(key as any));
+      }
+      else if (OPERATORS.includes(key as any)) {
+        dispatch(handleOperator(key as any));
+      }
+      else if (key === 'Enter' || key === '=') {
+        event.preventDefault();
+        handleEqual();
+      }
+      else if (key === 'Escape' || key === 'Delete') {
+        dispatch(resetCalculator());
+      }
+      else if (key === 'Backspace') {
+        dispatch(handleBackspace());
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [dispatch, handleEqual, equation, lastWasOperator]);
 
   return (
     <>
